@@ -14,6 +14,7 @@ import kaaes.spotify.webapi.android.models.AudioFeaturesTrack;
 import kaaes.spotify.webapi.android.models.AudioFeaturesTracks;
 import kaaes.spotify.webapi.android.models.CategoriesPager;
 import kaaes.spotify.webapi.android.models.Category;
+import kaaes.spotify.webapi.android.models.CurrentlyPlaying;
 import kaaes.spotify.webapi.android.models.FeaturedPlaylists;
 import kaaes.spotify.webapi.android.models.NewReleases;
 import kaaes.spotify.webapi.android.models.Pager;
@@ -1809,5 +1810,11 @@ public interface SpotifyService {
      */
     @GET("/me/top/tracks")
     void getTopTracks(@QueryMap Map<String, Object> options, Callback<Pager<Track>> callback);
+
+    @GET("/me/player/currently-playing")
+    Pager<Track> getCurrentTrack();
+
+    @GET("/me/player/currently-playing")
+    void getCurrentTrack(Callback<CurrentlyPlaying> callback);
 
 }
